@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>S3 uploader</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+
+  <body ng-app="uploader">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="text-center">REST S3 uploader</h1>
+        <p class="text-center">Upload an image as a profile picture</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-2 col-md-offset-5 avatar thumbnail">
+          <img src="img/placeholder.png">
+        </div>
+      </div>
+
+      <div class="row" ng-controller="UploadController">
+        <div class="col-sm-8 col-sm-offset-2 col-md-2 col-md-offset-5">
+          <input type="file" id="file-input" accept=".png, .jpg, .jpeg"/>
+          <br>
+          <button type="button" class="btn btn-success">Upload picture to S3</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
