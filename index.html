@@ -3,10 +3,12 @@
   <head>
     <title>S3 uploader</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   </head>
 
-  <body ng-app="uploader">
+  <body ng-app="uploader" ng-controller="UploadController">
     <div class="container">
       <div class="page-header">
         <h1 class="text-center">REST S3 uploader</h1>
@@ -15,15 +17,18 @@
 
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-2 col-md-offset-5 avatar thumbnail">
-          <img src="img/placeholder.png">
+          <img src="{{profilePic}}">
         </div>
       </div>
 
-      <div class="row" ng-controller="UploadController">
+      <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-2 col-md-offset-5">
           <input type="file" id="file-input" accept=".png, .jpg, .jpeg"/>
           <br>
-          <button type="button" class="btn btn-success" ng-click="uploadFile()">Upload picture to S3</button>
+          <button type="button" class="btn btn-success has-spinner" ng-class="{'active':uploading}" ng-click="uploadFile()">
+            <span class="spinner"><i class="icon-spin icon-spinner"></i></span>
+            Upload picture to S3
+          </button>
         </div>
       </div>
     </div>
