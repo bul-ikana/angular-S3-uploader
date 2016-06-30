@@ -17,7 +17,7 @@ angular.module('uploader.controllers', ['uploader.constants'])
 		var params = {Key: "images/" + randomString() + "-" + file.name, ContentType: file.type, Body: file};
 
 		bucket.upload(params, function (err, data) {
-	        $scope.profilePic = data.Location;
+	        $scope.profilePic = uploadConfig.cdn + "/" + data.Key;
 	        $scope.uploading = false;
 	        $scope.$apply();
 	    });
